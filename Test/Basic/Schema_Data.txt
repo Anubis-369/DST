@@ -9,7 +9,7 @@
 ----
 
 <Member1> [schema]:
-  <Value>
+  <Value> , <value> :
 
 <Member2> [schema]:
   <Value1>

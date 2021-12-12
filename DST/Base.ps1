@@ -50,16 +50,24 @@ Function Split-BasicPSO {
         [string]$Delimiter = ","
     )
 
+    $Title_S = "(?:\S+?)(?: +\[[\S ]+?\])?(?:\s+): "
+    $Title_SC = "(?<index>\S+?)(?: +\[(?<param>[\S ]+?)\])?(?<indent>\s+): "
+
     # 単行の見出し
-    $Title_S = "(?<=(?:^|\n| , ))(?:\S+?)(?: +\[\S+?\])?(?:\s+): "
-    $Capture_S = "(?<=(?:^|\n| , ))(?<index>\S+?)(?: +\[(?<param>\S+?)\])?(?<indent>\s+): "
+    $Title_1L = "(?<=(?:^|\n)){0}" -f $Title_S
+    $Capture_1L = "(?<=(?:^|\n)){0}" -f $Title_SC
+
+    # 単行複数の見出し
+    $Capture_1LMC = "(?<=(?:{0}[^\n]*? , (?:{1}[^\n]*? , )*)){2}" -f $Title_1L,$Title_S,$Title_SC
+
+    $Title_1LA = "(?<=(?:^|\n| , )){0}" -f $Title_S
 
     # 複数行の見出し
-    $Title_M = "(?<=(?:^|\n))(?:\S+?)(?: +\[\S+?\])?:(?:\r\n(?:\s+)|\n(?:\s+)|(?:$))"
-    $Capture_M = "(?<=(?:^|\n))(?<index>\S+?)(?: +\[(?<param>\S+)?\])?:(?:\r\n(?<indent>\s+)|\n(?<indent>\s+)|(?<indent>$))"
+    $Title_M = "(?<=(?:^|\n))(?:\S+?)(?: +\[[\S\s]+?\])?:(?:\r\n(?:\s+)|\n(?:\s+)|(?:$))"
+    $Capture_M = "(?<=(?:^|\n))(?<index>\S+?)(?: +\[(?<param>[\S\s]+?)\])?:(?:\r\n(?<indent>\s+)|\n(?<indent>\s+)|(?<indent>$))"
 
-    $capture = "(?:$Capture_S|$Capture_M)"
-    $Title = "(?:$Title_S|$Title_M)"
+    $capture = "(?:$Capture_1L|$Capture_1LMC|$Capture_M)"
+    $Title = "(?:$Title_1LA|$Title_M)"
     $Main_Regex  = [regex]"$capture(?<value>[\S\s]*?(?=(?:$|$Title| , (?=$Title))))"
 
     $Check_Title = [System.Collections.ArrayList]::new()
