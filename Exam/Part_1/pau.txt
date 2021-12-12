@@ -1,0 +1,18 @@
+-- pou1 --
+タイトル  : [Title]
+用途      : [Perpus]
+  備考
+
+備 考:
+  [Description:Array]
+  ここから備考
+
+-- Data2 --
+タイトル   : [Title]
+  備考
+ホスト名   : [HostName]
+IPアドレス : [IPAddress]
+
+備考:
+  [Description:Array]
+  ここから備考

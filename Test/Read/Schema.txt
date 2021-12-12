@@ -1,0 +1,15 @@
+-- Data1 --
+タイトル [Header=Title]: 備考 , サブタイトル [Header=Subtitle] : しらんよ。
+用途 [Header=Perpus]: 備考だー。
+備考 [Header=Description , Split=Array]:
+   ここから備考１
+
+
+-- Data2 --
+タイトル       [Header=Title,type=string]: タイトルの名前
+ホスト名    [Header=Hostname]: ぽうぽう
+IPアドレス [Header=IPAddress]: これは備考
+
+備考 [Header=Description,Split=Array]:
+   ここから備考
+   備考だ。

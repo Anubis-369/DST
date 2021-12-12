@@ -1,0 +1,49 @@
+<Member1> : <Value>
+<Member2> : <Value> , 
+<Member3> : <Value> , <value>
+<Member4> : <Value>
+----
+
+<Member1> : <Value> , <Member2> : <Value>
+<Member3> : <Value> , , <Member4> : <Value> , <value>
+----
+
+<Member1>:
+  <Value>
+
+<Member2>:
+  <Value1>
+  <Value2>
+
+<Member3>:
+  <Value1>
+    <Value2>
+
+<Member4>:
+  <Value1>
+  
+  <Value2>
+
+----
+<Member1> : <Value>
+<Member2> : <Value> , <Member3> : <Value>
+
+<Member4>:
+  <Value>
+
+----
+<Member1> : <Value> , <Member2> : <Value>
+<Member3>:
+  <Value>
+
+<Member4>:
+  <Value>
+
+<Member4>:
+  ※ これはスキップされる。
+
+----
+<Member1> : 
+<Member2> :  , <Member3> : 
+  
+<Member4>:

@@ -1,0 +1,9 @@
+-- Data1 --
+データの説明。これは無視されます。
+
+サービス名 [Header=Name] : 備考をこういう風に書くことができます！
+状態 [Header=Status]:
+  pou
+
+
+備考 [Header=DisplayName,Type=Text] : phone2numeric

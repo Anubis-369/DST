@@ -1,0 +1,47 @@
+<Member1> [schema] : <Value>
+<Member2> [schema] : <Value>
+<Member3> [schema] : <Value>
+<Member4> [schema] : <Value>
+----
+
+<Member1> [schema] : <Value> , <Member2> [schema] : <Value>
+<Member3> [schema] : <Value> , <Member4> [schema] : <Value>
+----
+
+<Member1> [schema]:
+  <Value>
+
+<Member2> [schema]:
+  <Value1>
+  <Value2>
+
+<Member3> [schema]:
+  <Value1>
+    <Value2>
+
+<Member4> [schema]:
+  <Value1>
+  
+  <Value2>
+----
+
+<Member1> [schema] : <Value> , <Member2> [schema] : <Value>
+<Member3> [schema] : <Value>
+
+<Member4> [schema]:
+  <Value>
+----
+
+<Member1> [schema] : <Value> , <Member2> [schema] : <Value>
+<Member3> [schema] : <Value>
+	
+<Member4> [schema]:
+  <Value>
+
+<Member4> [schema]:
+  ※ これがスキップされる。
+----
+
+<Member1> [schema] :  , <Member2> [schema] : 
+<Member3> [schema] : 
+<Member4> [schema]:
