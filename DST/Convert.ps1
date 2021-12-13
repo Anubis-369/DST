@@ -14,16 +14,17 @@ Function Split-BySchema {
         [psobject]$InputObject
     )
     $Splitters = $Schema | ? {$_.Split -ne ""}
-    $Result   = [System.Collections.ArrayList]::new()
+    if ( $splitters.count -eq 0 ) { return $InputObject }
+
+    $Result    = [System.Collections.ArrayList]::new()
     [void]$Result.add($InputObject)
 
-    if ( $splitters.count -eq 0 ) { return $Result }
     foreach ($element in $Splitters) {
         if ( $element.Type -eq "" ) { $Type = "string"} `
         else { $Type = $element.Type}
 
-        if ( $element.Header -eq "" ) { $Name = $element.Name} `
-        else {$Name = $element.Header}
+        if ( $element.Member -eq "" ) { $Name = $element.Name} `
+        else {$Name = $element.Member}
 
         $Value  = $InputObject | % $Name
         $Values = [System.Collections.ArrayList]::new()
@@ -61,7 +62,7 @@ Function Get-OnSchema {
     $Result = New-Object -TypeName psobject -Property @{}
 
     foreach ($element in $Schema) {
-        if ( $element.Type -eq "" -or $element.split -ne "" ) { $Type = "string"} `
+        if ( ($element.Type -eq "") -or ($element.split -ne "") ) { $Type = "string"} `
         else { $Type = $element.Type}
 
         if ( $element.Member -eq "" ) { $Name = $element.Name} `
@@ -130,7 +131,6 @@ Function ConvertTo-DSTPSobject {
         $Member = Split-BasicPSO $Data.Contents
         $OnSchema_Member = Get-OnSchema -Schema $Schema -Member $Member
         Split-BySchema -InputObject $OnSchema_Member -Schema $Schema | % { [void]$Result.add($_)}
-        #[void]$Result.add($OnSchema_Member)
     }
     
     return $Result

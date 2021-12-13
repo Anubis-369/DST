@@ -1,7 +1,7 @@
 -- Data1 --
 タイトル [Member=Title] : 備考 , サブタイトル [Member=Subtitle] : しらんよ。
 用途     [Member=Perpus] : 備考
-備考     [Member=Description,Split=Array]:
+備考     [Member=Description]:
    ここから備考１
 
 
@@ -10,6 +10,6 @@
 ホスト名 [Member=Hostname]          : ぽうぽう
 IPアドレス [Member=IPAddress]       : これは備考
 
-備考 [Member=Description, Split=Array]:
+備考 [Member=Description,Split=array]:
    ここから備考
    備考だ。

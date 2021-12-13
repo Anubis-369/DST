@@ -1,49 +1,59 @@
-<Member1> : <Value>
-<Member2> : <Value> , 
-<Member3> : <Value> , <value>
-<Member4> : <Value>
+<Member1> : Single_Line
+<Member2> : Single_Line , 
+<Member3> : Single_Line , Single_Line
+<Member4> : Single_Line
 ----
 
-<Member1> : <Value> , <Member2> : <Value>
-<Member3> : <Value> , , <Member4> : <Value> , <value>
+<Member1> : Line1_1 , <Member2> : Line1_2
+<Member3> : Line2_1 , , <Member4> : Line2_2 , Test
 ----
 
 <Member1>:
-  <Value>
+  Line1 Data
 
 <Member2>:
-  <Value1>
-  <Value2>
+  Line1 Data
+  Line2 Data
 
 <Member3>:
-  <Value1>
-    <Value2>
+  Line1
+    Line2 indent
 
 <Member4>:
-  <Value1>
+  Line1 _\n
   
-  <Value2>
+  Line3
 
 ----
-<Member1> : <Value>
-<Member2> : <Value> , <Member3> : <Value>
+<Member1> : Single_Line
+ここは拾われません。
+
+<Member2> : Line1_1 , <Member3> : Line1_2
+ここは拾われません。
 
 <Member4>:
-  <Value>
+  Line1 Data
 
+  ここも拾われません
 ----
-<Member1> : <Value> , <Member2> : <Value>
-<Member3>:
-  <Value>
+<Member1>:
+  Line1 Data
+  Line2 Data
 
-<Member4>:
-  <Value>
-
-<Member4>:
-  ※ これはスキップされる。
-
+<Member2> : Line1_1 , <Member3> : Line1_2 ,  <Member4> : Line1_3
 ----
 <Member1> : 
 <Member2> :  , <Member3> : 
-  
+
+<Member4>:
+
+<Member4>:
+  ※ これはスキップされる。
+----
+<Member1>:
+
+<Member2>:
+<Member3>:
+
+
 <Member4>:

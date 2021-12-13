@@ -40,8 +40,8 @@
 
 <Member4> [schema]:
   ※ これがスキップされる。
-----
 
+----
 <Member1> [schema] :  , <Member2> [schema] : 
 <Member3> [schema] : 
 <Member4> [schema]:
