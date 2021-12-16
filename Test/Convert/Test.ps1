@@ -9,3 +9,4 @@ $NoSchema = ConvertTo-DSTPSobject -Contents $Content -Dataname "Data1"
 $OnSchema = ConvertTo-DSTPSobject -Contents $Content -Dataname "Data1" -Schema $Schema
 
 $OnSplit = ConvertTo-DSTPSobject -Contents $Content -Dataname "Data2" -Schema $Schema
+$Onlist  = ConvertTo-DSTPSobject -Contents $Content -Dataname "Data3" -Schema $Schema

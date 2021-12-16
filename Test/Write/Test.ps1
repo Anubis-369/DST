@@ -1,7 +1,7 @@
-. $PSScriptRoot\..\..\Dynamis\Base.ps1
-. $PSScriptRoot\..\..\Dynamis\Schema.ps1
-. $PSScriptRoot\..\..\Dynamis\Count.ps1
-. $PSScriptRoot\..\..\Dynamis\Write.ps1
+. $PSScriptRoot\..\..\DST\Base.ps1
+. $PSScriptRoot\..\..\DST\Schema.ps1
+. $PSScriptRoot\..\..\DST\Count.ps1
+. $PSScriptRoot\..\..\DST\Write.ps1
 
 $Schema = Convert-DSTSchema $PSScriptRoot\Schema.txt
 

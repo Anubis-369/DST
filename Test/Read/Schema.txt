@@ -1,15 +1,15 @@
 -- Data1 --
-タイトル [Header=Title]: 備考 , サブタイトル [Header=Subtitle] : しらんよ。
-用途 [Header=Perpus]: 備考だー。
-備考 [Header=Description , Split=Array]:
+タイトル [Member=Title]: 備考 , サブタイトル [Member=Subtitle] : しらんよ。
+用途 [Member=Perpus]: 備考だー。
+備考 [Member=Description , Split=Array]:
    ここから備考１
 
 
 -- Data2 --
-タイトル       [Header=Title,type=string]: タイトルの名前
-ホスト名    [Header=Hostname]: ぽうぽう
-IPアドレス [Header=IPAddress]: これは備考
+タイトル       [Member=string]: タイトルの名前
+ホスト名    [Member=Hostname]: ぽうぽう
+IPアドレス [Member=IPAddress]: これは備考
 
-備考 [Header=Description,Split=Array]:
+備考 [Member=Description,Split=Array]:
    ここから備考
    備考だ。

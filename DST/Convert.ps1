@@ -31,10 +31,13 @@ Function Split-BySchema {
 
         switch ($element.Split) {
             array  { $Values = $Value -split ","}
-            list   { $Values = $Value -split "`n`s*- "}
+            list   { 
+                $Values = ([regex]"(?:^|\n)\s*- (?<value>.*)").Matches($Value) |`
+                % { ($_.Groups["value"].Value).Trim() }
+            }
             PSO    { $Values = $Value }
             default{ [void]$Values.add($Value) }
-        } 
+        }
         $Result = $Values | %{
             if ($element.Split -ne "PSO") {
                 $Result_Value = $_.Trim() -as $Type

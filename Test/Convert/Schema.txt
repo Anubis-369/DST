@@ -10,6 +10,18 @@
 ホスト名 [Member=Hostname]          : ぽうぽう
 IPアドレス [Member=IPAddress]       : これは備考
 
-備考 [Member=Description,Split=array]:
+備考 [
+    Member=Description,
+    Split=array
+]:
+   ここから備考
+   備考だ。
+
+-- Data3 --
+タイトル [Member=Title,type=string] : タイトルの名前
+ホスト名 [Member=Hostname]          : ぽうぽう
+IPアドレス [Member=IPAddress]       : これは備考
+
+備考 [Member=Description,Split=list]:
    ここから備考
    備考だ。

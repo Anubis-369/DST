@@ -52,13 +52,13 @@ Function Split-BasicPSO {
 
     # 単行の処理
     $Single_Title   = "(?:\S+?)(?: +\[[\S\s]+?\])?(?:\s+): "
-    $Single_Title_C = "(?<index>\S+?)(?: +\[(?<param>[\S\s]+?)\])?(?<indent>\s+): "
+    $Single_Title_C = "(?<index>\S+?)(?: +\[(?<param>[^\]]+?)\])?(?<indent>\s+): "
 
     $Single_String = "(?<=(?:^|\n|(?:{0} +?{1} +?)*)){2}(?<value>.*?)(?=(?:$|\r\n|\n| +?{1} +?{0}))"
     $Single_Capture = $Single_String -f $Single_Title,$Delimiter,$Single_Title_C
 
     # 複数行の処理
-    $Multiple_Title_C = "(?<index>\S+?)(?: +\[(?<param>[\S\s]+?)\])?:(?:\n|\r\n|$)"
+    $Multiple_Title_C = "(?<index>\S+?)(?: +\[(?<param>[^\]]+?)\])?:(?:\n|\r\n|$)?"
     $Multiple_String  = "(?<=(?:^|\n)){0}(?:(?<indent> +)(?<value>.*(?:\n +.*)*)(?:$|\n|\r\n))?"
     $Multiple_Capture = $Multiple_String -f $Multiple_Title_C
 

@@ -16,7 +16,7 @@ Function Convert-WriteSchema {
 
     foreach ( $Element in $Schema ) {
         $Count = Get-StringLength $Element.Name
-        $Member = if ($Element.Header -eq "" ) { $Element.Name } else { $Element.Header }
+        $Member = if ($Element.Member -eq "" ) { $Element.Name } else { $Element.Member }
 
         if ($Element.Type -in @("Text", "Join")) { $Max = 0 } else {
             if ($Count -gt $Max) { $Max = $Count }
