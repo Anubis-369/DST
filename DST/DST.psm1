@@ -5,4 +5,4 @@
 . (join-path $PSScriptRoot Base.ps1) 
 . (join-path $PSScriptRoot Write.ps1) 
 . (join-path $PSScriptRoot Convert.ps1) 
-Export-ModuleMember -Function Convert-DSTString, Convert-DSTSchema, Import-DSTdatafiLE
+Export-ModuleMember -Function Convert-DSTString, Convert-DSTSchema, Import-DSTdatafile

@@ -1,5 +1,5 @@
 -- Data1 --
 名前 [Member=Name] : サービス名 , 表示名 [Member=Displayname] : 表示名
 状態 [Member=Status]: 
-備考 [Member=Displayname,Type=Text]:
+備考 [Member=Displayname,Format=Text]:
    ここから備考１

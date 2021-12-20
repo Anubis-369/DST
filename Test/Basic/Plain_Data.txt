@@ -37,8 +37,7 @@
   ここも拾われません
 ----
 <Member1>:
-  Line1 Data
-  Line2 Data
+  Line1 Data , Lin1 : Data
 
 <Member2> : Line1_1 , <Member3> : Line1_2 ,  <Member4> : Line1_3
 ----

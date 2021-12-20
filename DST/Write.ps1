@@ -18,7 +18,7 @@ Function Convert-WriteSchema {
         $Count = Get-StringLength $Element.Name
         $Member = if ($Element.Member -eq "" ) { $Element.Name } else { $Element.Member }
 
-        if ($Element.Type -in @("Text", "Join")) { $Max = 0 } else {
+        if ($Element.Format -in @("Text", "Join")) { $Max = 0 } else {
             if ($Count -gt $Max) { $Max = $Count }
         }
 
@@ -26,7 +26,7 @@ Function Convert-WriteSchema {
                 Member = $Member;
                 Title  = $Element.Name;
                 Count  = $Count;
-                Type   = $Element.Type;
+                Format = $Element.Format;
                 Indent = $Element.Indent;
                 End    = "`n";
                 Max    = $Max;
@@ -37,7 +37,7 @@ Function Convert-WriteSchema {
 
     #逆順からその最大値を全データに入れていく処理
     $Step_1[($Step_1.Count - 1)..0] | % {
-        if ($_.Type -in @("Text", "Join")) {
+        if ($_.Format -in @("Text", "Join")) {
             $_.Max = 0 ; $Max = 0
         }
         else {
@@ -49,7 +49,7 @@ Function Convert-WriteSchema {
     $Step_1 | % {
         $Title = $_.Title
         $Indent = $_.Max - $_.Count 
-        Switch ($_.Type) {
+        Switch ($_.Format) {
             Text {
                 $Header = "`n" + $Title + ":`n"
                 $End = "`n`n"
@@ -66,7 +66,7 @@ Function Convert-WriteSchema {
 
         [void]$Result.add([PSCustomObject]@{
                 Member = $_.Member;
-                Type   = $_.Type;
+                Format = $_.Format;
                 Header = $Header;
                 Indent = $_.Indent;
                 End    = $End;
@@ -77,7 +77,7 @@ Function Convert-WriteSchema {
     $Before = $False
     $Result[( $Result.Count - 1 )..0] | % {
         if ( $_.End -eq " , " ) {
-            if ( $Before -eq $False ) { $_.Indent = 0 ;　$_.End = "`n" ; $Before = $True }
+            if ( $Before -eq $False ) { $_.Indent = 0 ; $_.End = "`n" ; $Before = $True }
         }
         else { $Before = $False }
     }
@@ -97,7 +97,7 @@ Function Convert-PSOtoString {
     $Result_String = ""
     foreach ( $Member_Schema in $WriteSchema) {
         $PSO_String = (($PSObject | % $Member_Schema.Member) -as [string]).Trim()
-        switch ($Member_Schema.Type) {
+        switch ($Member_Schema.Format) {
             Text {
                 $Data_String = "  " + ($PSO_String -replace "`n", "`n  ").Trim()
             }
@@ -123,7 +123,7 @@ Function Convert-PSOtoString {
 function Convert-DSTString {
     <#
         .SYNOPSIS
-        データ単位で文字列を区切っていく関数。
+        
     #>
     param (
         [string]$Schema,
