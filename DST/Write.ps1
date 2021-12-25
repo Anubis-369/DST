@@ -64,13 +64,15 @@ Function Convert-WriteSchema {
             }
         }
 
-        [void]$Result.add([PSCustomObject]@{
+        [void]$Result.add(
+            [PSCustomObject]@{
                 Member = $_.Member;
                 Format = $_.Format;
                 Header = $Header;
                 Indent = $_.Indent;
                 End    = $End;
-            })
+            }
+        )
     }
 
     #逆順からその最大値を全データに入れていく処理
